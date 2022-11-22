@@ -14,7 +14,7 @@ public class DownloadManager {
     public void download(String downloadUrl, String filePath) throws IOException {
         var url = new URL(downloadUrl);
         var path = new File(filePath);
-        if (path.isDirectory()){
+        if (path.exists() || path.isDirectory()){
                 throw new IllegalStateException("The file or directory is already exists in path %s".formatted(filePath));
         }
 
